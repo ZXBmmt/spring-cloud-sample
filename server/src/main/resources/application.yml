@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: spring-cloud-eureka-server-sample
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-cluster.mmt.com/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
