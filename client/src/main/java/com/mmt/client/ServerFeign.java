@@ -8,4 +8,7 @@ public interface ServerFeign {
 
     @RequestMapping("/echo")
     public String echo();
+
+    @RequestMapping("/slow-echo")
+    public String slowEcho();
 }
