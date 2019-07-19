@@ -14,7 +14,7 @@ public class FeignClientController {
     @GetMapping("/feign-echo")
     public String echo() {
         String result = serverFeign.echo();
-        System.out.printf("调用的ip为："+result);
+        System.out.println("调用的ip为："+result);
         return result;
     }
 }

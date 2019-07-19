@@ -15,7 +15,7 @@ public class RestTemplateController {
     public String echo() {
         String echoUrl = "http://spring-cloud-eureka-server-sample/echo";
         String result = restTemplate.getForObject(echoUrl, String.class);
-        System.out.printf("调用的ip为："+result);
+        System.out.println("调用的ip为："+result);
         return result;
     }
 }

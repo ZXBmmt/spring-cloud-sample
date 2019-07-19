@@ -8,12 +8,22 @@ spring:
       preferred-networks[0]: 192.168
 eureka:
   client:
-    service-url:
-      defaultZone: http://eureka-cluster.mmt.com/eureka
+#    service-url:
+#      defaultZone: http://eureka-cluster.mmt.com/eureka
     register-with-eureka: true
     fetch-registry: true
   instance:
     prefer-ip-address: true
+
+ribbon:
+  #方法调用处理时间
+  ReadTimeout: 6000
+  #连接时间
+  ConnectTimeout: 60000
+  ##最大自动重试次数
+  maxAutoRetries: 1
+  ## 换实例重试次数
+  MaxAutoRetriesNextServer: 2
 
 feign:
   hystrix:
@@ -23,5 +33,17 @@ hystrix:
   command:
     default:
       execution:
-        timeout:
-          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+apollo:
+  bootstrap:
+    enabled: true
+  test:
+    properties:
+      valueEnv: local
+  cacheDir: /data/apollo/cache
+  meta: http://apollo-dev-meta-cluster
+app:
+  id: spring-cloud-eureka-client-sample
